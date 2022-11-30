@@ -9,6 +9,7 @@
 #define INC_SCHEDULER_H_
 
 #include "main.h"
+#include "timer.h"
 
 typedef struct{
 	void (* pTask)(void);

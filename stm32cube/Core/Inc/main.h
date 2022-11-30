@@ -70,12 +70,14 @@ void Error_Handler(void);
 #define Button3_GPIO_Port GPIOB
 #define PedestrianLight_0_Pin GPIO_PIN_10
 #define PedestrianLight_0_GPIO_Port GPIOB
+#define PedestrianLight_1_Pin GPIO_PIN_8
+#define PedestrianLight_1_GPIO_Port GPIOA
 #define TrafficLight1_0_Pin GPIO_PIN_10
 #define TrafficLight1_0_GPIO_Port GPIOA
 #define TrafficLight1_1_Pin GPIO_PIN_3
 #define TrafficLight1_1_GPIO_Port GPIOB
-#define TrafficLight1_1B4_Pin GPIO_PIN_4
-#define TrafficLight1_1B4_GPIO_Port GPIOB
+#define TrafficLight2_1_Pin GPIO_PIN_4
+#define TrafficLight2_1_GPIO_Port GPIOB
 #define TrafficLight2_0_Pin GPIO_PIN_5
 #define TrafficLight2_0_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

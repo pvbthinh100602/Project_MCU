@@ -5,7 +5,6 @@
  *      Author: phamv
  */
 #include "scheduler.h"
-#include "sched.h"
 
 sTask SCH_tasks_G[SCH_MAX_TASKS];
 
@@ -37,7 +36,7 @@ uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 		return SCH_MAX_TASKS;
 	}
 	SCH_tasks_G[index].pTask = pFunc;
-	SCH_tasks_G[index].Period = period;
+	SCH_tasks_G[index].Period = period/TIMER_CYCLE;
 	SCH_tasks_G[index].Delay = delay;
 	SCH_tasks_G[index].RunMe = 0;
 	SCH_tasks_G[index].TaskID = index;
