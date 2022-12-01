@@ -7,4 +7,5 @@
 #include "global.h"
 
 int status = 0;
+int counter = 0;
 

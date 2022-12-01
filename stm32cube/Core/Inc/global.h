@@ -33,5 +33,6 @@
 #define	TUNING_YELLOW2	26
 
 extern int status;
+extern int counter;
 
 #endif /* INC_GLOBAL_H_ */
