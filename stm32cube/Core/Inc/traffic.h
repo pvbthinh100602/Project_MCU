@@ -13,6 +13,9 @@
 void setTraffic1Red();
 void setTraffic1Green();
 void setTraffic1Yellow();
+void toggleTraffic1Red();
+void toggleTraffic1Green();
+void toggleTraffic1Yellow();
 void clearTraffic1();
 
 void setTraffic2Red();
@@ -23,6 +26,9 @@ void clearTraffic2();
 void setPedestrianRed();
 void setPedestrianGreen();
 void setPedestrianYellow();
+void toggleTraffic2Red();
+void toggleTraffic2Green();
+void toggleTraffic2Yellow();
 void clearPedestrian();
 
 #endif /* INC_TRAFFIC_H_ */

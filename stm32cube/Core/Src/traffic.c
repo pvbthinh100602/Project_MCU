@@ -27,6 +27,7 @@ void clearTraffic1(){
 	HAL_GPIO_WritePin(TrafficLight1_1_GPIO_Port, TrafficLight1_1_Pin, GPIO_PIN_RESET);
 }
 
+
 void setTraffic2Green(){
 	HAL_GPIO_WritePin(TrafficLight2_0_GPIO_Port, TrafficLight2_0_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(TrafficLight2_1_GPIO_Port, TrafficLight2_1_Pin, GPIO_PIN_SET);
@@ -67,3 +68,34 @@ void clearPedestrian(){
 	HAL_GPIO_WritePin(PedestrianLight_1_GPIO_Port, PedestrianLight_1_Pin, GPIO_PIN_RESET);
 }
 
+void toggleTraffic1Red(){
+	// Only use when led is clear or red.
+	HAL_GPIO_TogglePin(TrafficLight1_0_GPIO_Port, TrafficLight1_0_Pin);
+}
+
+void toggleTraffic2Red(){
+	// Only use when led is clear or red.
+	HAL_GPIO_TogglePin(TrafficLight2_0_GPIO_Port, TrafficLight2_0_Pin);
+}
+
+void toggleTraffic1Green(){
+	// Only use when led is clear or green.
+	HAL_GPIO_TogglePin(TrafficLight1_1_GPIO_Port, TrafficLight1_1_Pin);
+}
+
+void toggleTraffic2Green(){
+	// Only use when led is clear or green.
+	HAL_GPIO_TogglePin(TrafficLight2_1_GPIO_Port, TrafficLight2_1_Pin);
+}
+
+void toggleTraffic1Yellow(){
+	// Only use when led is clear or yellow.
+	HAL_GPIO_TogglePin(TrafficLight1_0_GPIO_Port, TrafficLight1_0_Pin);
+	HAL_GPIO_TogglePin(TrafficLight1_1_GPIO_Port, TrafficLight1_1_Pin);
+}
+
+void toggleTraffic2Yellow(){
+	// Only use when led is clear or yellow.
+	HAL_GPIO_TogglePin(TrafficLight2_0_GPIO_Port, TrafficLight2_0_Pin);
+	HAL_GPIO_TogglePin(TrafficLight2_1_GPIO_Port, TrafficLight2_1_Pin);
+}
