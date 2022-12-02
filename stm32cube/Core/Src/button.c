@@ -40,10 +40,10 @@ void button_reading(){
 		// readpin
 		//...
 
-		if(i == 0) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button1_GPIO_Port, Button1_Pin);
-		else if(i == 1) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button2_GPIO_Port, Button2_Pin);
-		else if(i == 2) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button3_GPIO_Port, Button3_Pin);
-		else if(i == 3) debounce_buffer1[i] = HAL_GPIO_ReadPin(PedestrianButton_GPIO_Port, PedestrianButton_Pin);
+		if(i == 0) debounce_buffer1[i] = HAL_GPIO_ReadPin(PedestrianButton_GPIO_Port, PedestrianButton_Pin);
+		else if(i == 1) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button2_GPIO_Port, Button1_Pin);
+		else if(i == 2) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button3_GPIO_Port, Button2_Pin);
+		else if(i == 3) debounce_buffer1[i] = HAL_GPIO_ReadPin(Button3_GPIO_Port, Button3_Pin);
 
 
         //process after debouncing
