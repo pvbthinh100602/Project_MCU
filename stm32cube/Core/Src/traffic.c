@@ -99,3 +99,35 @@ void toggleTraffic2Yellow(){
 	HAL_GPIO_TogglePin(TrafficLight2_0_GPIO_Port, TrafficLight2_0_Pin);
 	HAL_GPIO_TogglePin(TrafficLight2_1_GPIO_Port, TrafficLight2_1_Pin);
 }
+
+void acceptTraffic1Red(){
+	max_red1 = counter;
+	if(max_red1 <= max_yellow2) max_yellow2 = 1;
+	max_green2 = max_red1 - max_yellow2;
+}
+
+void acceptTraffic2Red(){
+	max_red2 = counter;
+	if(max_red2 <= max_yellow1) max_yellow1 = 1;
+	max_green1 = max_red2 - max_yellow1;
+}
+
+void acceptTraffic1Green(){
+	max_green1 = counter;
+	max_yellow1 = max_red2 - max_green1;
+}
+
+void acceptTraffic2Green(){
+	max_green2 = counter;
+	max_yellow2 = max_red1 - max_green2;
+}
+
+void acceptTraffic1Yellow(){
+	max_yellow1 = counter;
+	max_green1 = max_red2 - max_yellow1;
+}
+
+void acceptTraffic2Yellow(){
+	max_yellow2 = counter;
+	max_green2 = max_red1 - max_yellow2;
+}

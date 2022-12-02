@@ -16,3 +16,9 @@ traffic.c:81:6:toggleTraffic1Green	8	static
 traffic.c:86:6:toggleTraffic2Green	8	static
 traffic.c:91:6:toggleTraffic1Yellow	8	static
 traffic.c:97:6:toggleTraffic2Yellow	8	static
+traffic.c:103:6:acceptTraffic1Red	4	static
+traffic.c:109:6:acceptTraffic2Red	4	static
+traffic.c:115:6:acceptTraffic1Green	4	static
+traffic.c:120:6:acceptTraffic2Green	4	static
+traffic.c:125:6:acceptTraffic1Yellow	4	static
+traffic.c:130:6:acceptTraffic2Yellow	4	static
