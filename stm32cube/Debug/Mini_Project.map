@@ -185,7 +185,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./Core/Src/fsm_auto.o
  .text.fsm_auto_run
                 0x0000000000000000        0xc ./Core/Src/fsm_auto.o
- .debug_info    0x0000000000000000      0x1f2 ./Core/Src/fsm_auto.o
+ .debug_info    0x0000000000000000      0x216 ./Core/Src/fsm_auto.o
  .debug_abbrev  0x0000000000000000       0xb6 ./Core/Src/fsm_auto.o
  .debug_aranges
                 0x0000000000000000       0x20 ./Core/Src/fsm_auto.o
@@ -231,7 +231,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/fsm_auto.o
  .debug_macro   0x0000000000000000       0x5e ./Core/Src/fsm_auto.o
  .debug_line    0x0000000000000000      0x6a4 ./Core/Src/fsm_auto.o
- .debug_str     0x0000000000000000    0x81d11 ./Core/Src/fsm_auto.o
+ .debug_str     0x0000000000000000    0x81d34 ./Core/Src/fsm_auto.o
  .comment       0x0000000000000000       0x54 ./Core/Src/fsm_auto.o
  .debug_frame   0x0000000000000000       0x30 ./Core/Src/fsm_auto.o
  .ARM.attributes
@@ -280,7 +280,7 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./Core/Src/fsm_manual.o
  .text.fsm_manual_run
                 0x0000000000000000        0xc ./Core/Src/fsm_manual.o
- .debug_info    0x0000000000000000      0x1f2 ./Core/Src/fsm_manual.o
+ .debug_info    0x0000000000000000      0x216 ./Core/Src/fsm_manual.o
  .debug_abbrev  0x0000000000000000       0xb6 ./Core/Src/fsm_manual.o
  .debug_aranges
                 0x0000000000000000       0x20 ./Core/Src/fsm_manual.o
@@ -326,7 +326,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/fsm_manual.o
  .debug_macro   0x0000000000000000       0x5e ./Core/Src/fsm_manual.o
  .debug_line    0x0000000000000000      0x6a6 ./Core/Src/fsm_manual.o
- .debug_str     0x0000000000000000    0x81d17 ./Core/Src/fsm_manual.o
+ .debug_str     0x0000000000000000    0x81d3a ./Core/Src/fsm_manual.o
  .comment       0x0000000000000000       0x54 ./Core/Src/fsm_manual.o
  .debug_frame   0x0000000000000000       0x30 ./Core/Src/fsm_manual.o
  .ARM.attributes
@@ -389,8 +389,8 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./Core/Src/fsm_tuning.o
  .bss           0x0000000000000000        0x0 ./Core/Src/fsm_tuning.o
  .text.fsm_tuning_run
-                0x0000000000000000      0x1dc ./Core/Src/fsm_tuning.o
- .debug_info    0x0000000000000000      0x1f2 ./Core/Src/fsm_tuning.o
+                0x0000000000000000      0x308 ./Core/Src/fsm_tuning.o
+ .debug_info    0x0000000000000000      0x216 ./Core/Src/fsm_tuning.o
  .debug_abbrev  0x0000000000000000       0xb6 ./Core/Src/fsm_tuning.o
  .debug_aranges
                 0x0000000000000000       0x20 ./Core/Src/fsm_tuning.o
@@ -435,8 +435,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x34 ./Core/Src/fsm_tuning.o
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/fsm_tuning.o
  .debug_macro   0x0000000000000000       0x5e ./Core/Src/fsm_tuning.o
- .debug_line    0x0000000000000000      0x73c ./Core/Src/fsm_tuning.o
- .debug_str     0x0000000000000000    0x81d17 ./Core/Src/fsm_tuning.o
+ .debug_line    0x0000000000000000      0x7cb ./Core/Src/fsm_tuning.o
+ .debug_str     0x0000000000000000    0x81d3a ./Core/Src/fsm_tuning.o
  .comment       0x0000000000000000       0x54 ./Core/Src/fsm_tuning.o
  .debug_frame   0x0000000000000000       0x2c ./Core/Src/fsm_tuning.o
  .ARM.attributes
@@ -485,12 +485,19 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./Core/Src/global.o
  .bss.status    0x0000000000000000        0x4 ./Core/Src/global.o
  .bss.counter   0x0000000000000000        0x4 ./Core/Src/global.o
- .data.max_red  0x0000000000000000        0x4 ./Core/Src/global.o
- .data.max_green
+ .data.max_red1
                 0x0000000000000000        0x4 ./Core/Src/global.o
- .data.max_yellow
+ .data.max_green1
                 0x0000000000000000        0x4 ./Core/Src/global.o
- .debug_info    0x0000000000000000      0x21e ./Core/Src/global.o
+ .data.max_yellow1
+                0x0000000000000000        0x4 ./Core/Src/global.o
+ .data.max_red2
+                0x0000000000000000        0x4 ./Core/Src/global.o
+ .data.max_green2
+                0x0000000000000000        0x4 ./Core/Src/global.o
+ .data.max_yellow2
+                0x0000000000000000        0x4 ./Core/Src/global.o
+ .debug_info    0x0000000000000000      0x26c ./Core/Src/global.o
  .debug_abbrev  0x0000000000000000       0xa9 ./Core/Src/global.o
  .debug_aranges
                 0x0000000000000000       0x18 ./Core/Src/global.o
@@ -535,7 +542,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/global.o
  .debug_macro   0x0000000000000000       0x5e ./Core/Src/global.o
  .debug_line    0x0000000000000000      0x680 ./Core/Src/global.o
- .debug_str     0x0000000000000000    0x81cf1 ./Core/Src/global.o
+ .debug_str     0x0000000000000000    0x81d14 ./Core/Src/global.o
  .comment       0x0000000000000000       0x54 ./Core/Src/global.o
  .ARM.attributes
                 0x0000000000000000       0x33 ./Core/Src/global.o

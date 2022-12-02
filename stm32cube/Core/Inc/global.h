@@ -35,8 +35,12 @@
 extern int status;
 extern int counter;
 
-extern int max_red;
-extern int max_green;
-extern int max_yellow;
+extern int max_red1;
+extern int max_green1;
+extern int max_yellow1;
+
+extern int max_red2;
+extern int max_green2;
+extern int max_yellow2;
 
 #endif /* INC_GLOBAL_H_ */
