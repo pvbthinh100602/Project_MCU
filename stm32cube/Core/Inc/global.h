@@ -34,7 +34,6 @@
 
 extern int status;
 extern int counter;
-extern int counter2;
 
 extern int max_red1;
 extern int max_green1;
