@@ -14,18 +14,14 @@ void fsm_auto_run(){
 		status=AUTO_RED_GREEN;
 		setTimer1(1000);
 		counter = max_red1;
+		displayCounter();
 		setTraffic1Red();
 		setTraffic2Green();
 		break;
 	case AUTO_RED_GREEN:
-		if(isButtonPressed(1)){
-			status=MAN_RED_GREEN;
-			setTimer1(60000);
-			setTraffic1Red();
-			setTraffic2Green();
-			counter = 99;
-			break;
-		}
+		isButtonPressed(0);
+		isButtonPressed(2);
+		isButtonPressed(3);
 		if(timer1_flag == 1){
 			counter--;
 			setTimer1(1000);
@@ -33,17 +29,23 @@ void fsm_auto_run(){
 				setTraffic2Yellow();
 				status=AUTO_RED_YELLOW;
 			}
+			displayCounter();
 		}
-		break;
-	case AUTO_RED_YELLOW:
+
 		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
 			setTimer1(60000);
 			setTraffic1Red();
 			setTraffic2Green();
 			counter = 99;
+			displayCounter();
 			break;
 		}
+		break;
+	case AUTO_RED_YELLOW:
+		isButtonPressed(0);
+		isButtonPressed(2);
+		isButtonPressed(3);
 		if(timer1_flag == 1){
 			counter--;
 			setTimer1(1000);
@@ -53,18 +55,24 @@ void fsm_auto_run(){
 				setTraffic2Red();
 				status=AUTO_GREEN_RED;
 			}
+			displayCounter();
 		}
-		break;
 
-	case AUTO_GREEN_RED:
 		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
 			setTimer1(60000);
 			setTraffic1Red();
 			setTraffic2Green();
 			counter = 99;
+			displayCounter();
 			break;
 		}
+		break;
+
+	case AUTO_GREEN_RED:
+		isButtonPressed(0);
+		isButtonPressed(2);
+		isButtonPressed(3);
 		if(timer1_flag == 1){
 			counter--;
 			setTimer1(1000);
@@ -73,18 +81,24 @@ void fsm_auto_run(){
 				setTraffic1Yellow();
 				status=AUTO_YELLOW_RED;
 			}
+			displayCounter();
 		}
-		break;
 
-	case AUTO_YELLOW_RED:
-		if(isButtonPressed(1)==1){
+		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
 			setTimer1(60000);
 			setTraffic1Red();
 			setTraffic2Green();
 			counter = 99;
+			displayCounter();
 			break;
 		}
+		break;
+
+	case AUTO_YELLOW_RED:
+		isButtonPressed(0);
+		isButtonPressed(2);
+		isButtonPressed(3);
 		if(timer1_flag == 1){
 			counter--;
 			setTimer1(1000);
@@ -94,6 +108,17 @@ void fsm_auto_run(){
 				setTraffic2Green();
 				status=AUTO_RED_GREEN;
 			}
+			displayCounter();
+		}
+
+		if(isButtonPressed(1)==1){
+			status=MAN_RED_GREEN;
+			setTimer1(60000);
+			setTraffic1Red();
+			setTraffic2Green();
+			counter = 99;
+			displayCounter();
+			break;
 		}
 		break;
 	}

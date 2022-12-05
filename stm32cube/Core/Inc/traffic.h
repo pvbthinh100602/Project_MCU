@@ -36,7 +36,7 @@ void clearTraffic2();
 void setPedestrianRed();
 void setPedestrianGreen();
 void setPedestrianYellow();
-
 void clearPedestrian();
 
+void displayCounter();
 #endif /* INC_TRAFFIC_H_ */

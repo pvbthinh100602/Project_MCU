@@ -22,3 +22,4 @@ traffic.c:115:6:acceptTraffic1Green	4	static
 traffic.c:120:6:acceptTraffic2Green	4	static
 traffic.c:125:6:acceptTraffic1Yellow	4	static
 traffic.c:130:6:acceptTraffic2Yellow	4	static
+traffic.c:135:6:displayCounter	8	static

@@ -17,3 +17,5 @@ int max_red2 = 5;
 int max_green2 = 3;
 int max_yellow2 = 2;
 
+char str[9] = "";
+

@@ -43,4 +43,6 @@ extern int max_red2;
 extern int max_green2;
 extern int max_yellow2;
 
+extern char str[];
+
 #endif /* INC_GLOBAL_H_ */

@@ -21,7 +21,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			status = AUTO_RED_GREEN;
 			acceptTraffic1Red();
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -37,6 +39,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic1Red();
 			counter = max_red2;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -44,6 +47,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > 99){
 				counter = 2;
 			}
@@ -62,7 +66,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			acceptTraffic2Red();
 			status = AUTO_RED_GREEN;
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -77,6 +83,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic2Red();
 			counter = max_green1;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -84,6 +91,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > 99){
 				counter = 2;
 			}
@@ -102,7 +110,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			acceptTraffic1Green();
 			status = AUTO_RED_GREEN;
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -118,6 +128,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic1Green();
 			counter = max_green2;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -125,6 +136,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > max_red2 - 1){
 				counter = 1;
 			}
@@ -143,7 +155,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			status = AUTO_RED_GREEN;
 			acceptTraffic2Green();
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -159,6 +173,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic2Green();
 			counter = max_yellow1;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -166,6 +181,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > max_red1 - 1){
 				counter = 1;
 			}
@@ -182,7 +198,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			status = AUTO_RED_GREEN;
 			acceptTraffic1Yellow();
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -198,6 +216,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic1Yellow();
 			counter = max_yellow2;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -205,6 +224,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > max_red2 - 1){
 				counter = 1;
 			}
@@ -222,7 +242,9 @@ void fsm_tuning_run(){
 			isButtonPressed(3);
 			status = AUTO_RED_GREEN;
 			acceptTraffic2Yellow();
-			setTimer1(max_green2*1000);
+			setTimer1(1000);
+			counter = max_red1;
+			displayCounter();
 			setTraffic1Red();
 			setTraffic2Green();
 			break;
@@ -238,6 +260,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			acceptTraffic2Yellow();
 			counter = max_red1;
+			displayCounter();
 			clearTraffic1();
 			clearTraffic2();
 			break;
@@ -245,6 +268,7 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
+			displayCounter();
 			if(counter > max_red1 - 1){
 				counter = 1;
 			}

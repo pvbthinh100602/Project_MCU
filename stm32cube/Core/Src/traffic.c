@@ -131,3 +131,8 @@ void acceptTraffic2Yellow(){
 	max_yellow2 = counter;
 	max_green2 = max_red1 - max_yellow2;
 }
+
+void displayCounter(){
+	sprintf(str, "!7SEG:%d%d#", counter/10, counter%10);
+	HAL_UART_Transmit_IT(&huart2, (void*)str, 9);
+}
