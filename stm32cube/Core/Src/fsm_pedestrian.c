@@ -5,4 +5,8 @@
  *      Author: phamv
  */
 
+#include "fsm_pedestrian.h"
 
+void fsm_pedestrian_run(){
+
+}

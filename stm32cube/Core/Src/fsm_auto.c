@@ -8,7 +8,6 @@
 #include "fsm_auto.h"
 
 void fsm_auto_run(){
-
 	switch (status)
 	{
 	case INIT:
@@ -21,6 +20,10 @@ void fsm_auto_run(){
 	case AUTO_RED_GREEN:
 		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
+			setTimer1(60000);
+			setTraffic1Red();
+			setTraffic2Green();
+			counter = 99;
 			break;
 		}
 		if(timer1_flag == 1){
@@ -35,6 +38,10 @@ void fsm_auto_run(){
 	case AUTO_RED_YELLOW:
 		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
+			setTimer1(60000);
+			setTraffic1Red();
+			setTraffic2Green();
+			counter = 99;
 			break;
 		}
 		if(timer1_flag == 1){
@@ -52,6 +59,10 @@ void fsm_auto_run(){
 	case AUTO_GREEN_RED:
 		if(isButtonPressed(1)){
 			status=MAN_RED_GREEN;
+			setTimer1(60000);
+			setTraffic1Red();
+			setTraffic2Green();
+			counter = 99;
 			break;
 		}
 		if(timer1_flag == 1){
@@ -68,6 +79,10 @@ void fsm_auto_run(){
 	case AUTO_YELLOW_RED:
 		if(isButtonPressed(1)==1){
 			status=MAN_RED_GREEN;
+			setTimer1(60000);
+			setTraffic1Red();
+			setTraffic2Green();
+			counter = 99;
 			break;
 		}
 		if(timer1_flag == 1){

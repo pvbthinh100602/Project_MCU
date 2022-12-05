@@ -23,7 +23,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "scheduler.h"
-#include "traffic.h"
+#include "fsm_auto.h"
+#include "fsm_manual.h"
+#include "fsm_tuning.h"
+#include "fsm_pedestrian.h"
+#include "scheduler.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -108,7 +113,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  fsm_auto_run();
+	  fsm_manual_run();
+	  fsm_tuning_run();
+	  fsm_pedestrian_run();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
