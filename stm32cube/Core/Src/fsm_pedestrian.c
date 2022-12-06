@@ -17,11 +17,15 @@ void fsm_pedestrian_run(){
 			break;
 		case PED_NONE:
 			if(isButtonPressed(0)){
-				if(status == AUTO_RED_GREEN || status == MAN_RED_GREEN || status == MAN_RED_YELLOW || status == AUTO_RED_YELLOW){
+				if(status == AUTO_RED_GREEN || status == AUTO_RED_YELLOW){
 					pedestrianStatus = PED_GREEN;
 					setPedestrianGreen();
 					setTimer2(250);
-				} else if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
+				}else if(status == MAN_RED_GREEN || status == MAN_RED_YELLOW ){
+					pedestrianStatus = PED_GREEN;
+					setPedestrianGreen();
+				}
+				else if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
 					pedestrianStatus = PED_RED;
 					setPedestrianRed();
 				}
@@ -34,10 +38,14 @@ void fsm_pedestrian_run(){
 				clearPedestrian();
 				break;
 			}
-			if(status == AUTO_RED_GREEN || status == MAN_RED_GREEN){
+			else if(status == AUTO_RED_GREEN){
 				pedestrianStatus = PED_GREEN;
 				setPedestrianGreen();
 				setTimer2(250);
+			}
+			else if (status == MAN_RED_GREEN){
+				pedestrianStatus = PED_GREEN;
+				setPedestrianGreen();
 			}
 			break;
 		case PED_GREEN:
@@ -53,7 +61,7 @@ void fsm_pedestrian_run(){
 			}
 			if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
 				pedestrianStatus = PED_RED;
-				setTimer3(1000);
+				setTimer3(2000);
 				setPedestrianRed();
 				__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,0);
 			}
