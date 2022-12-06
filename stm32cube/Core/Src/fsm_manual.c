@@ -33,6 +33,8 @@ void fsm_manual_run(){
 
 			if (isButtonPressed(2)) {
 				status = MAN_RED_YELLOW;
+				setTraffic1Red();
+				setTraffic2Yellow();
 				setTimer1(60000);
 			}
 			break;
@@ -62,6 +64,8 @@ void fsm_manual_run(){
 
 			if (isButtonPressed(2)) {
 				status = MAN_GREEN_RED;
+				setTraffic1Green();
+				setTraffic2Red();
 				setTimer1(60000);
 			}
 
@@ -93,6 +97,8 @@ void fsm_manual_run(){
 
 			if (isButtonPressed(2)) {
 				status = MAN_YELLOW_RED;
+				setTraffic1Yellow();
+				setTraffic2Red();
 				setTimer1(60000);
 			}
 
@@ -123,6 +129,8 @@ void fsm_manual_run(){
 
 			if (isButtonPressed(2)) {
 				status = MAN_RED_GREEN;
+				setTraffic1Red();
+				setTraffic2Green();
 				setTimer1(60000);
 			}
 

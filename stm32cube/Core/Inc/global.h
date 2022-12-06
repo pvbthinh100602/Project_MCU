@@ -32,7 +32,12 @@
 #define	TUNING_YELLOW1	25
 #define	TUNING_YELLOW2	26
 
+#define	PED_NONE	2
+#define PED_RED		3
+#define PED_GREEN	4
+
 extern int status;
+extern int pedestrianStatus;
 extern int counter;
 
 extern int max_red1;
@@ -44,5 +49,8 @@ extern int max_green2;
 extern int max_yellow2;
 
 extern char str[];
+
+extern int ped_red_flag;
+extern int ped_green_flag;
 
 #endif /* INC_GLOBAL_H_ */

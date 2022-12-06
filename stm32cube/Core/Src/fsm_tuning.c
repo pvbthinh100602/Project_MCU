@@ -47,10 +47,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > 99){
 				counter = 2;
 			}
+			displayCounter();
 		}
 
 		break;
@@ -69,7 +69,7 @@ void fsm_tuning_run(){
 			setTimer1(1000);
 			counter = max_red1;
 			displayCounter();
-			setTraffic1Red();
+			setTraffic2Red();
 			setTraffic2Green();
 			break;
 		}
@@ -91,10 +91,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > 99){
 				counter = 2;
 			}
+			displayCounter();
 		}
 		break;
 	case TUNING_GREEN1:
@@ -136,10 +136,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > max_red2 - 1){
 				counter = 1;
 			}
+			displayCounter();
 		}
 		break;
 	case TUNING_GREEN2:
@@ -181,10 +181,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > max_red1 - 1){
 				counter = 1;
 			}
+			displayCounter();
 		}
 		break;
 	case TUNING_YELLOW1:
@@ -224,10 +224,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > max_red2 - 1){
 				counter = 1;
 			}
+			displayCounter();
 		}
 		break;
 	case TUNING_YELLOW2:
@@ -268,10 +268,10 @@ void fsm_tuning_run(){
 
 		if(isButtonPressed(3)){
 			counter++;
-			displayCounter();
 			if(counter > max_red1 - 1){
 				counter = 1;
 			}
+			displayCounter();
 		}
 		break;
 	default:
