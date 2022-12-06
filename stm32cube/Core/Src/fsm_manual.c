@@ -9,7 +9,6 @@
 void fsm_manual_run(){
 	switch (status) {
 		case MAN_RED_GREEN:
-			isButtonPressed(0);
 			isButtonPressed(3);
 			if(timer1_flag) {
 				status = AUTO_RED_YELLOW;
@@ -40,7 +39,6 @@ void fsm_manual_run(){
 			break;
 
 		case MAN_RED_YELLOW:
-			isButtonPressed(0);
 			isButtonPressed(3);
 			if(timer1_flag) {
 				status = AUTO_GREEN_RED;
@@ -73,7 +71,6 @@ void fsm_manual_run(){
 			break;
 
 		case MAN_GREEN_RED:
-			isButtonPressed(0);
 			isButtonPressed(3);
 			if(timer1_flag) {
 				status = AUTO_YELLOW_RED;
@@ -105,7 +102,6 @@ void fsm_manual_run(){
 			break;
 
 		case MAN_YELLOW_RED:
-			isButtonPressed(0);
 			isButtonPressed(3);
 			if(timer1_flag) {
 				status = AUTO_RED_GREEN;
