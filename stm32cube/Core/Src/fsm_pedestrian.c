@@ -24,6 +24,7 @@ void fsm_pedestrian_run(){
 				}else if(status == MAN_RED_GREEN || status == MAN_RED_YELLOW ){
 					pedestrianStatus = PED_GREEN;
 					setPedestrianGreen();
+					setTimer2(0);
 				}
 				else if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
 					pedestrianStatus = PED_RED;
@@ -46,6 +47,7 @@ void fsm_pedestrian_run(){
 			else if (status == MAN_RED_GREEN){
 				pedestrianStatus = PED_GREEN;
 				setPedestrianGreen();
+				setTimer2(0);
 			}
 			break;
 		case PED_GREEN:
