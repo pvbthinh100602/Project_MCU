@@ -39,8 +39,13 @@ void fsm_manual_run(){
 			break;
 
 		case MAN_RED_YELLOW:
-			isButtonPressed(3);
+			if(isButtonPressed(3)){
+				if(pedestrianStatus == PED_GREEN){
+					__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,63);
+				}
+			}
 			if(timer1_flag) {
+				__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,0);
 				status = AUTO_GREEN_RED;
 				setTimer1(1000);
 				counter = max_green1;
@@ -50,6 +55,7 @@ void fsm_manual_run(){
 			}
 
 			if(isButtonPressed(1)) {
+				__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,0);
 				isButtonPressed(2);
 				status = TUNING_RED1;
 				setTimer1(1000);
@@ -61,13 +67,12 @@ void fsm_manual_run(){
 			}
 
 			if (isButtonPressed(2)) {
+				__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,0);
 				status = MAN_GREEN_RED;
 				setTraffic1Green();
 				setTraffic2Red();
 				setTimer1(60000);
 			}
-
-
 			break;
 
 		case MAN_GREEN_RED:

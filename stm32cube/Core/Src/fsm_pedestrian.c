@@ -21,7 +21,7 @@ void fsm_pedestrian_run(){
 					pedestrianStatus = PED_GREEN;
 					setPedestrianGreen();
 					setTimer2(250);
-				}else if(status == MAN_RED_GREEN || status == MAN_RED_YELLOW ){
+				} else if(status == MAN_RED_GREEN || status == MAN_RED_YELLOW ){
 					pedestrianStatus = PED_GREEN;
 					setPedestrianGreen();
 					setTimer2(0);
@@ -53,7 +53,7 @@ void fsm_pedestrian_run(){
 		case PED_GREEN:
 			if(timer2_flag){
 				if(PWM == 0){
-					PWM = 63-63*counter/max_red1;
+					PWM = 63-63*counter/(double)max_red1;
 					__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,PWM);
 				} else {
 					PWM = 0;
