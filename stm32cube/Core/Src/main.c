@@ -119,12 +119,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   status = INIT;
   pedestrianStatus = INIT;
+  SCH_Add_Task(timer_run, 1, 1);
+  SCH_Add_Task(button_reading, 1, 1);
+  SCH_Add_Task(fsm_auto_run, 2, 10);
+  SCH_Add_Task(fsm_manual_run, 3, 10);
+  SCH_Add_Task(fsm_tuning_run, 4, 10);
+  SCH_Add_Task(fsm_pedestrian_run, 5, 10);
   while (1)
   {
-	  fsm_auto_run();
-	  fsm_manual_run();
-	  fsm_tuning_run();
-	  fsm_pedestrian_run();
+	  SCH_Dispatch_Tasks();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

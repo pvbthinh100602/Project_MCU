@@ -36,7 +36,7 @@ uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 		return SCH_MAX_TASKS;
 	}
 	SCH_tasks_G[index].pTask = pFunc;
-	SCH_tasks_G[index].Period = period/TIMER_CYCLE;
+	SCH_tasks_G[index].Period = period;
 	SCH_tasks_G[index].Delay = delay;
 	SCH_tasks_G[index].RunMe = 0;
 	SCH_tasks_G[index].TaskID = index;
@@ -51,7 +51,7 @@ void SCH_Dispatch_Tasks(void){
 			if(SCH_tasks_G[index].Period == 0) SCH_Delete_Task(index);
 		}
 	}
-	SCH_Go_To_Sleep();
+//	SCH_Go_To_Sleep();
 }
 
 uint8_t SCH_Delete_Task(uint32_t index){
@@ -66,8 +66,8 @@ uint8_t SCH_Delete_Task(uint32_t index){
 	}
 }
 
-void SCH_Go_To_Sleep(void){
-	HAL_SuspendTick();
-	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-//	HAL_ResumeTick();
-}
+//void SCH_Go_To_Sleep(void){
+//	HAL_SuspendTick();
+//	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+////	HAL_ResumeTick();
+//}

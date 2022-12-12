@@ -25,7 +25,7 @@ Core/Src/fsm_pedestrian.o: ../Core/Src/fsm_pedestrian.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- ../Core/Inc/button.h ../Core/Inc/traffic.h ../Core/Inc/scheduler.h
+ ../Core/Inc/button.h ../Core/Inc/scheduler.h ../Core/Inc/traffic.h
 
 ../Core/Inc/fsm_pedestrian.h:
 
@@ -87,6 +87,6 @@ Core/Src/fsm_pedestrian.o: ../Core/Src/fsm_pedestrian.c \
 
 ../Core/Inc/button.h:
 
-../Core/Inc/traffic.h:
-
 ../Core/Inc/scheduler.h:
+
+../Core/Inc/traffic.h:
