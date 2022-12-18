@@ -28,12 +28,12 @@ void SCH_Update(void){
 //			}
 //		}
 //	}
-	if(head != NULL){
-		head->Delay--;
-	}
 	while(head != NULL && head->Delay == 0){
 		if(head->Period != 0) SCH_Add_Task(head->pTask, head->Period, head->Period);
 		head = head->pNext;
+	}
+	if(head != NULL){
+		head->Delay--;
 	}
 }
 
@@ -57,7 +57,7 @@ uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 	}
 	SCH_tasks_G[index].pTask = pFunc;
 	SCH_tasks_G[index].Period = period;
-	SCH_tasks_G[index].RunMe = 0;
+//	SCH_tasks_G[index].RunMe = 0;
 	SCH_tasks_G[index].TaskID = index;
 	struct sTask *cur = head;
 	struct sTask *prev = NULL;
@@ -122,7 +122,7 @@ uint8_t SCH_Delete_Task(uint32_t index){
 		SCH_tasks_G[index].pTask = 0;
 		SCH_tasks_G[index].Delay = 0;
 		SCH_tasks_G[index].Period = 0;
-		SCH_tasks_G[index].RunMe = 0;
+//		SCH_tasks_G[index].RunMe = 0;
 		SCH_tasks_G[index].pNext = 0;
 		SCH_tasks_G[index].TaskID = 0;
 		return 1;

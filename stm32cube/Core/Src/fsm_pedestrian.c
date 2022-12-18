@@ -33,8 +33,8 @@ void fsm_pedestrian_run(){
 			}
 			break;
 		case PED_RED:
-			if(timer3_flag){
-				timer3_flag = 0;
+			if(timer2_flag){
+				timer2_flag = 0;
 				pedestrianStatus = PED_NONE;
 				clearPedestrian();
 				break;
@@ -63,7 +63,7 @@ void fsm_pedestrian_run(){
 			}
 			if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
 				pedestrianStatus = PED_RED;
-				setTimer3(2000);
+				setTimer2(2000);
 				setPedestrianRed();
 				__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1,0);
 			}
