@@ -8,6 +8,7 @@
 #include "fsm_pedestrian.h"
 
 int PWM = 0;
+int counterPed = 2;
 
 void fsm_pedestrian_run(){
 	switch(pedestrianStatus) {
@@ -19,6 +20,7 @@ void fsm_pedestrian_run(){
 			if(isButtonPressed(0)){
 				if(status == AUTO_RED_GREEN || status == AUTO_RED_YELLOW){
 					pedestrianStatus = PED_GREEN;
+					counterPed = 2;
 					setPedestrianGreen();
 					setTimer2(250);
 				} else if(status == MAN_RED_GREEN || status == MAN_RED_YELLOW ){
@@ -28,6 +30,7 @@ void fsm_pedestrian_run(){
 				}
 				else if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
 					pedestrianStatus = PED_RED;
+					counterPed = 2;
 					setPedestrianRed();
 				}
 			}
@@ -35,9 +38,11 @@ void fsm_pedestrian_run(){
 		case PED_RED:
 			if(timer2_flag){
 				timer2_flag = 0;
-				pedestrianStatus = PED_NONE;
-				clearPedestrian();
-				break;
+				if(counterPed == 0){
+					pedestrianStatus = PED_NONE;
+					clearPedestrian();
+					break;
+				}
 			}
 			else if(status == AUTO_RED_GREEN){
 				pedestrianStatus = PED_GREEN;
@@ -62,6 +67,7 @@ void fsm_pedestrian_run(){
 				setTimer2(250);
 			}
 			if(status == AUTO_GREEN_RED || status == MAN_GREEN_RED || status == AUTO_YELLOW_RED || status == MAN_YELLOW_RED){
+				counterPed--;
 				pedestrianStatus = PED_RED;
 				setTimer2(2000);
 				setPedestrianRed();

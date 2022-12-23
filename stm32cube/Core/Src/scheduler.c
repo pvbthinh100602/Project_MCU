@@ -8,10 +8,6 @@
 
 struct sTask SCH_tasks_G[SCH_MAX_TASKS];
 struct sTask *head = NULL;
-//struct sTask *pRun = NULL;
-
-uint8_t reAdd_index = SCH_MAX_TASKS;
-
 void SCH_Init(void){
 	unsigned char i;
 	for(i = 0; i < SCH_MAX_TASKS; i++){
@@ -20,27 +16,6 @@ void SCH_Init(void){
 }
 
 void SCH_Update(void){
-//	uint32_t index;
-//	for(index = 0; index < SCH_MAX_TASKS; index++){
-//		if(SCH_tasks_G[index].pTask){
-//			if(SCH_tasks_G[index].Delay > 0){
-//				SCH_tasks_G[index].Delay--;
-//			} else {
-//				SCH_tasks_G[index].RunMe += 1;
-//				SCH_tasks_G[index].Delay = SCH_tasks_G[index].Period;
-//			}
-//		}
-//	}
-	while(head != NULL && head->Delay == 0){
-		head->RunMe++;
-		struct sTask* temp = head;
-		head = head->pNext;
-		if(temp->Period != 0){
-			reAdd_index = temp->TaskID;
-			SCH_Add_Task(temp->pTask, temp->Period, temp->Period);
-		}
-
-	}
 	if(head != NULL){
 		head->Delay--;
 	}
@@ -49,25 +24,18 @@ void SCH_Update(void){
 uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 	uint32_t index = 0;
 	uint8_t waiting = 0;
-	if(reAdd_index  == SCH_MAX_TASKS){
-		while(SCH_tasks_G[index].pTask != 0 && index < SCH_MAX_TASKS) index++;
-		if(index == SCH_MAX_TASKS){
-			return SCH_MAX_TASKS;
-		}
-	} else {
-		index = reAdd_index;
-		reAdd_index  = SCH_MAX_TASKS;
+	while(SCH_tasks_G[index].pTask != 0 && index < SCH_MAX_TASKS) index++;
+	if(index == SCH_MAX_TASKS){
+		return SCH_MAX_TASKS;
 	}
 	SCH_tasks_G[index].pTask = pFunc;
 	SCH_tasks_G[index].Period = period;
-//	SCH_tasks_G[index].RunMe = 0;
 	SCH_tasks_G[index].TaskID = index;
 	struct sTask *cur = head;
 	struct sTask *prev = NULL;
 	if(head == NULL){
 		head = &SCH_tasks_G[index];
 		SCH_tasks_G[index].Delay = delay;
-//		pRun = head;
 	} else {
 		while(cur != NULL){
 			waiting += cur->Delay;
@@ -83,7 +51,6 @@ uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 				head = &SCH_tasks_G[index];
 				head->pNext = cur;
 				head->Delay = delay;
-//				if(pRun == cur) pRun = head;
 			} else {
 				prev->pNext =  &SCH_tasks_G[index];
 				SCH_tasks_G[index].Delay = delay - waiting + cur->Delay;
@@ -96,20 +63,13 @@ uint32_t SCH_Add_Task(void(*pFunc)(), uint32_t delay, uint32_t period){
 }
 
 void SCH_Dispatch_Tasks(void){
-	for(int index = 0; index < SCH_MAX_TASKS; index++){
-		if(SCH_tasks_G[index].RunMe > 0){
-			SCH_tasks_G[index].RunMe--;
-			(*SCH_tasks_G[index].pTask)();
-			if(SCH_tasks_G[index].Period == 0) SCH_Delete_Task(index);
-		}
+	if(head != NULL && head->Delay == 0){
+		(*head->pTask)();
+		if(head->Period != 0) SCH_Add_Task(head->pTask, head->Period, head->Period);
+		uint32_t del_index = head->TaskID;
+		head = head->pNext;
+		SCH_Delete_Task(del_index);
 	}
-//	SCH_Go_To_Sleep();
-//	while(pRun != head){
-//		(pRun->pTask)();
-//		uint32_t id = pRun->TaskID;
-//		pRun = pRun->pNext;
-//		SCH_Delete_Task(id);
-//	}
 }
 
 uint8_t SCH_Delete_Task(uint32_t index){
@@ -119,15 +79,8 @@ uint8_t SCH_Delete_Task(uint32_t index){
 		SCH_tasks_G[index].pTask = 0;
 		SCH_tasks_G[index].Delay = 0;
 		SCH_tasks_G[index].Period = 0;
-		SCH_tasks_G[index].RunMe = 0;
 		SCH_tasks_G[index].pNext = 0;
 		SCH_tasks_G[index].TaskID = 0;
 		return 1;
 	}
 }
-
-//void SCH_Go_To_Sleep(void){
-//	HAL_SuspendTick();
-//	HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-////	HAL_ResumeTick();
-//}

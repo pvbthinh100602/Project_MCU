@@ -11,14 +11,13 @@
 #include "main.h"
 #include "timer.h"
 
-typedef struct sTask{
+struct sTask{
 	void (* pTask)(void);
 	uint32_t Delay;
 	uint32_t Period;
-	uint8_t RunMe;
 	uint32_t TaskID;
 	struct sTask* pNext;
-} sTask;
+};
 
 #define SCH_MAX_TASKS 20
 #define NO_TASK_ID 0
